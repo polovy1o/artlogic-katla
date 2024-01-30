@@ -7,6 +7,7 @@ import productHiveSectionsRouter from './routers/ProductHiveSectionsRouter.js'
 import productsRouter from './routers/ProductsRouter.js'
 import productCategoriesRouter from './routers/ProductCategoriesRouter.js'
 import sequelize, { connectDatabase } from './database.js'
+import ErrorHandlerMiddleware from './middlewares/ErrorHandlerMiddleware.js'
 
 const app = express()
 
@@ -17,12 +18,13 @@ app.use('/api/hives', productHivesRouter)
 app.use('/api/sections', productHiveSectionsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/categories', productCategoriesRouter)
-
 app.use(
     "/api-docs",
     swaggerUi.serve,
     swaggerUi.setup(swaggerData)
 );
+
+app.use(ErrorHandlerMiddleware)
 
 startServer()
 
