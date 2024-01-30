@@ -13,6 +13,9 @@ function DefineProductCategory(sequelize)
             allowNull: false,
             unique: true
         },
+        description: {
+            type: DataTypes.TEXT(300)
+        },
         isDeleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

@@ -2,9 +2,11 @@ import sequelize from '../database.js'
 
 class ProductCategoriesService {
     getCategories() {
-        return sequelize.models.ProductCategory.findAll({attributes: [
-            'id', 'name', 'code', 'isDeleted', 'updatedAt'
-        ]});
+        return sequelize.models.ProductCategory.findAll({
+            attributes: [
+                'id', 'name', 'code', 'description', 'isDeleted', 'updatedAt'
+            ]
+        });
     }
 
     createCategory({ name, code, description }) {
@@ -20,7 +22,7 @@ class ProductCategoriesService {
     //
     getCategory(id) {
         return sequelize.models.ProductCategory.findByPk(id, {attributes: [
-            'id', 'name', 'code', 'isDeleted', 'updatedAt'
+            'id', 'name', 'code', 'description', 'isDeleted', 'updatedAt'
         ]});
     }
 
@@ -37,7 +39,7 @@ class ProductCategoriesService {
     getCategoryProducts(categoryId) {
         return sequelize.models.CatalogueProduct.findAll({ 
             where: { categoryId },
-            attributes: [ 'id', 'name', 'code', 'isDeleted', 'updatedAt' ]
+            attributes: [ 'id', 'name', 'code', 'description', 'isDeleted', 'updatedAt' ]
         })
     }
 }

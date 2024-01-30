@@ -16,7 +16,7 @@ class ProductsController {
     async createProduct(req, res, next)
     {
         try {
-            await productsService.createProduct(req.body.createRequest)
+            await productsService.createProduct(req.body)
             res.sendStatus(201)
         } catch (err) {
             next(err)
@@ -59,7 +59,7 @@ class ProductsController {
     async updateProduct(req, res, next)
     {
         try {
-            const exists = await productsService.updateProduct(req.params.productId, req.body.updateRequest)
+            const exists = await productsService.updateProduct(req.params.productId, req.body)
             if (!exists) {
                 throw new RequestedResourceNotFoundError()
             }
