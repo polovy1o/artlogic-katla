@@ -9,6 +9,12 @@ const productsMiddlewares = {
         body('code')
             .exists().withMessage('Code is required').bail()
             .isLength({ min: 5, max: 5}).withMessage('Code length must be = 5'),
+        body('manufacturerCode')
+            .exists().withMessage('Manufacturer code is required').bail()
+            .isLength({ max: 10}).withMessage('Manufacturer code length must be <= 10'),
+        body('price')
+            .isInt({ min: 1 }).withMessage('Product price must be INT'),
+        body('description').optional().isLength({max: 300}).withMessage('Description length must be <= 300'),
         body('categoryId').isInt().withMessage('Category ID must be INT'),
         ValidationMiddleware
     ],
@@ -28,6 +34,12 @@ const productsMiddlewares = {
         body('code')
             .exists().withMessage('Code is required').bail()
             .isLength({ min: 5, max: 5}).withMessage('Code length must be = 5'),
+        body('manufacturerCode')
+            .exists().withMessage('Manufacturer code is required').bail()
+            .isLength({ max: 10}).withMessage('Manufacturer code length must be <= 10'),
+        body('price')
+            .isInt({ min: 1 }).withMessage('Product price must be INT > 0'),
+        body('description').optional().isLength({max: 300}).withMessage('Description length must be <= 300'),
         body('categoryId').isInt().withMessage('Category ID must be INT'),
         ValidationMiddleware
     ],

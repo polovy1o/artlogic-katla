@@ -45,10 +45,10 @@ async function createRecordsForDevelopment() {
     sequelize.query("INSERT INTO ProductCategories VALUES (2, 'Running clothing', 'RUNCL', 'test', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
     sequelize.query("INSERT INTO ProductCategories VALUES (3, 'Bicycling', 'BICYC', 'test', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
 
-    sequelize.query("INSERT INTO CatalogueProducts VALUES (1, 'Kyak Men Shoes', 'KYME1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
-    sequelize.query("INSERT INTO CatalogueProducts VALUES (2, 'Top-top Men Shoes', 'TTME1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
-    sequelize.query("INSERT INTO CatalogueProducts VALUES (3, 'Abibas T-Shirt', 'ABIT1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
-    sequelize.query("INSERT INTO CatalogueProducts VALUES (4, 'Pedali 360 Bicycle', 'PBYC1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 3)")
+    sequelize.query("INSERT INTO CatalogueProducts VALUES (1, 'Kyak Men Shoes', 'KYME1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
+    sequelize.query("INSERT INTO CatalogueProducts VALUES (2, 'Top-top Men Shoes', 'TTME1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
+    sequelize.query("INSERT INTO CatalogueProducts VALUES (3, 'Abibas T-Shirt', 'ABIT1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
+    sequelize.query("INSERT INTO CatalogueProducts VALUES (4, 'Pedali 360 Bicycle', 'PBYC1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 3)")
 
     sequelize.query("INSERT INTO Hives VALUES (1, 'Gorka Minsk', 'HIVE1', 'Minsk, Chaveza-30', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
     sequelize.query("INSERT INTO Hives VALUES (2, 'Shabany Minsk', 'HIVE2', 'Minsk, Zarechnaya-47', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
