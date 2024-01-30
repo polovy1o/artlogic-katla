@@ -41,9 +41,9 @@ export async function connectDatabase() {
 
 async function createRecordsForDevelopment() {
 
-    sequelize.query("INSERT INTO ProductCategories VALUES (1, 'Running shoes', 'RUNSH', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:02:08')")
-    sequelize.query("INSERT INTO ProductCategories VALUES (2, 'Running clothing', 'RUNCL', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
-    sequelize.query("INSERT INTO ProductCategories VALUES (3, 'Bicycling', 'BICYC', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO ProductCategories VALUES (1, 'Running shoes', 'RUNSH', 'test', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:02:08')")
+    sequelize.query("INSERT INTO ProductCategories VALUES (2, 'Running clothing', 'RUNCL', 'test', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO ProductCategories VALUES (3, 'Bicycling', 'BICYC', 'test', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
 
     sequelize.query("INSERT INTO CatalogueProducts VALUES (1, 'Kyak Men Shoes', 'KYME1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
     sequelize.query("INSERT INTO CatalogueProducts VALUES (2, 'Top-top Men Shoes', 'TTME1', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")

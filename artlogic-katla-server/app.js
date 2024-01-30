@@ -10,8 +10,8 @@ import sequelize, { connectDatabase } from './database.js'
 
 const app = express()
 
-app.use(cors({ origin: true, credentials: true }))
 app.use(express.json())
+app.use(cors({ origin: true, credentials: true }))
 
 app.use('/api/hives', productHivesRouter)
 app.use('/api/sections', productHiveSectionsRouter)

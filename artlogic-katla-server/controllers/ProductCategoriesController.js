@@ -16,7 +16,7 @@ class ProductCategoriesController {
     async createCategory(req, res, next)
     {
         try {
-            await productCategoriesService.createCategory(req.body.createRequest)
+            await productCategoriesService.createCategory(req.body)
             res.sendStatus(201)
         } catch(err) {
             next(err)
@@ -59,7 +59,7 @@ class ProductCategoriesController {
     async updateCategory(req, res, next)
     {
         try {
-            const exists = await productCategoriesService.updateCategory(req.params.categoryId, req.body.updateRequest)
+            const exists = await productCategoriesService.updateCategory(req.params.categoryId, req.body)
             if (!exists) {
                 throw RequestedResourceNotFoundError()
             }
