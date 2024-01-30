@@ -1,0 +1,1111 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "KatlaSport API"
+    },
+    "host": "localhost:3001",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/hives": {
+            "get": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_GetHives",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of hives.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/HiveListItem"
+                            }
+                        },
+                        "xml": {
+                            "name": "HiveListItem"
+                        }
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/hives/{hiveId}": {
+            "get": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_GetHive",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "hiveId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a hive.",
+                        "schema": {
+                            "$ref": "#/definitions/Hive"
+                        },
+                        "xml": {
+                            "name": "Hive"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/hives/{hiveId}/sections": {
+            "get": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_GetHiveSections",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "hiveId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of hive sections for specified hive.",
+                        "schema": {
+                            "$ref": "#/definitions/HiveSectionListItem"
+                        },
+                        "xml": {
+                            "name": "HiveSectionListItem"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/hives/{hiveId}/status/{deletedStatus}": {
+            "put": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_SetStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "hiveId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "deletedStatus",
+                        "in": "path",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Sets deleted status for an existed hive."
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/sections": {
+            "get": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_GetHiveSections",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of hive sections.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/HiveSectionListItem"
+                            }
+                        },
+                        "xml": {
+                            "name": "HiveSectionListItem"
+                        }
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/sections/{hiveSectionId}": {
+            "get": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_GetHiveSection",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "hiveSectionId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a hive section.",
+                        "schema": {
+                            "$ref": "#/definitions/HiveSection"
+                        },
+                        "xml": {
+                            "name": "HiveSection"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/sections/{hiveSectionId}/status/{deletedStatus}": {
+            "put": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_SetStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "hiveSectionId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "deletedStatus",
+                        "in": "path",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Sets deleted status for an existed hive section."
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_GetProductCategories",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of product categories.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ProductCategoryListItem"
+                            }
+                        },
+                        "xml": {
+                            "name": "ProductCategory"
+                        }
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_AddProductCategory",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "createRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProductCategoryRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Creates a new product category."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}": {
+            "get": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_GetProductCategory",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a product category.",
+                        "schema": {
+                            "$ref": "#/definitions/ProductCategory"
+                        },
+                        "xml": {
+                            "name": "ProductCategory"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_UpdateProductCategory",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "updateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProductCategoryRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Updates an existed product category."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_DeleteProductCategory",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deletes an existed product category."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}/status/{deletedStatus}": {
+            "put": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_SetStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "deletedStatus",
+                        "in": "path",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Sets deleted status for an existed product category."
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}/products": {
+            "get": {
+                "tags": [
+                    "ProductCategories"
+                ],
+                "operationId": "ProductCategories_GetProducts",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of products for requested product category.",
+                        "schema": {
+                            "$ref": "#/definitions/ProductCategoryProductListItem"
+                        },
+                        "xml": {
+                            "name": "Product"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_GetProducts",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of products.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ProductListItem"
+                            },
+                            "xml": {
+                                "name": "Product"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_AddProduct",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "createRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProductRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Creates a new product."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_GetProduct",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a product.",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        },
+                        "xml": {
+                            "name": "Product"
+                        }
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_UpdateProduct",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "updateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProductRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Updates an existed product."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_DeleteProduct",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deletes an existed product."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        },
+        "/api/products/{id}/status/{deletedStatus}": {
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "operationId": "Products_SetStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "deletedStatus",
+                        "in": "path",
+                        "required": true,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Sets deleted status for an existed product category."
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "HiveListItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "hiveSectionCount": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Hive": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
+        "HiveSectionListItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "HiveSection": {
+            "type": "object",
+            "properties": {
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "ProductCategoryListItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateProductCategoryRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "ProductCategory": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
+        "ProductCategoryProductListItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
+        "ProductListItem": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "categoryCode": {
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateProductRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "categoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Product": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "manufacturerCode": {
+                    "type": "string"
+                },
+                "price": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
