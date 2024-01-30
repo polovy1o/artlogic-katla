@@ -27,11 +27,11 @@ class ProductService {
     }
     
     addProduct(createRequest) {
-        return this.productInstance.post({ createRequest });
+        return this.productInstance.post(createRequest);
     }
     
     updateProduct(productId, updateRequest) {
-        return this.productInstance.put('' + productId, { updateRequest });
+        return this.productInstance.put('' + productId, updateRequest);
     }
     
     deleteProduct(productId) {

@@ -17,11 +17,11 @@ class ProductCategoryService {
     }
 
     addProductCategory(createRequest) {
-        return this.instance.post('', {createRequest})
+        return this.instance.post('', createRequest)
     }
 
     updateProductCategory(productCategoryId, updateRequest) {
-        return this.instance.put('' + productCategoryId, {updateRequest})
+        return this.instance.put('' + productCategoryId, updateRequest)
     }
 
     deleteProductCategory(productCategoryId) {
