@@ -4,7 +4,7 @@ class ProductsService {
     async getProducts() {
         const products = await sequelize.models.CatalogueProduct.findAll({
             attributes: [
-                'id', 'name', 'categoryId', 'code', 'isDeleted', 'updatedAt'
+                'id', 'name', 'categoryId', 'code', 'manufacturerCode', 'price', 'description', 'isDeleted', 'updatedAt'
             ]
         })
 
@@ -22,8 +22,8 @@ class ProductsService {
         return products;
     }
 
-    createProduct({name, code, categoryId}) {
-        return sequelize.models.CatalogueProduct.create({name, code, categoryId})
+    createProduct({name, code, manufacturerCode, price, description, categoryId}) {
+        return sequelize.models.CatalogueProduct.create({name, code, manufacturerCode, price, description, categoryId})
     }
 
     deleteProduct(id) {
@@ -32,30 +32,23 @@ class ProductsService {
         })
     }
 
-    //
-    //TODO
-    //
-    async getProduct(id) {
-        let product = await sequelize.models.CatalogueProduct.findByPk(id, {
+    getProduct(id) {
+        return sequelize.models.CatalogueProduct.findByPk(id, {
             attributes: [
-                'id', 'name', 'categoryId', 'code', 'isDeleted', 'updatedAt'
+                'id', 'name', 'categoryId', 'code', 'manufacturerCode', 'price', 'description', 'isDeleted', 'updatedAt'
             ]
         })
-
-        if (!product) return null;
-
-        product = {...product.dataValues};
-        product.manufacturerCode = '';
-        product.description = ''
-        product.price = 0;
-
-        return product;
     }
 
-    updateProduct(id, { name, code, categoryId }) {
-        return sequelize.models.CatalogueProduct.update({ name, categoryCode: code, categoryId}, {
-            where: { id }
-        })
+    updateProduct(id, { name, code, manufacturerCode, price, description, categoryId }) {
+        return sequelize.models.CatalogueProduct.update(
+            { 
+                name, categoryCode: code, manufacturerCode, price, description, categoryId
+            }, 
+            {
+                where: { id }
+            }
+        )
     }
 
     setProductStatus(id, isDeleted) {

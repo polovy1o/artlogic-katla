@@ -10,6 +10,18 @@ function DefineCatalogueProduct(sequelize) {
             type: DataTypes.TEXT(5),
             allowNull: false
         },
+        manufacturerCode: {
+            type: DataTypes.TEXT(10),
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.TEXT(300),
+            defaultValue: null
+        },
         isDeleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
