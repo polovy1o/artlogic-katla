@@ -1018,6 +1018,16 @@
                 "code": {
                     "type": "string"
                 },
+                "manufacturerCode": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "description": {
+                    "type": "string"
+                },
                 "isDeleted": {
                     "type": "boolean"
                 },
@@ -1047,6 +1057,16 @@
                 "code": {
                     "type": "string"
                 },
+                "manufacturerCode": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "description": {
+                    "type": "string"
+                },
                 "isDeleted": {
                     "type": "boolean"
                 },
@@ -1063,6 +1083,16 @@
                     "type": "string"
                 },
                 "code": {
+                    "type": "string"
+                },
+                "manufacturerCode": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "description": {
                     "type": "string"
                 },
                 "categoryId": {
