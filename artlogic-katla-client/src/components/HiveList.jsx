@@ -24,6 +24,8 @@ function HiveList() {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Name</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -31,11 +33,21 @@ function HiveList() {
                     {hives.map(hive =>
                         <tr key={hive.id}>
                             <th scope="row">{hive.id}</th>
+                            <td>{hive.code}</td>
+                            <td>{hive.name}</td>
                             <td>
                                 <span className="btn-toolbar" role="toolbar" aria-label="Hive action buttons" style={{ display: "block", whiteSpace: "nowrap", }}>
-                                    <div className="btn-group mr-2" role="group" aria-label="Delete group">
-                                        <button type="button" className="btn btn-danger">Delete</button>
+                                    <div className="btn-group mr-1" role="group" aria-label="View group">
+                                        <NavLink to={'/hive/' + hive.id + '/sections'} className="btn btn-primary">View sections</NavLink>
                                     </div>
+                                    <div className="btn-group mr-2" role="group" aria-label="Edit group">
+                                        <NavLink to={'/hive/' + hive.id} className="btn btn-primary">Edit</NavLink>
+                                    </div>
+                                    {!hive.isDeleted ?
+                                        <div className="btn-group" role="group" aria-label="Delete group">
+                                            <button type="button" onClick={() => hiveService.setHiveStatus(hive.id, true)} className="btn btn-danger">Delete</button>
+                                        </div>
+                                        : null}
                                 </span>
                             </td>
                         </tr>
