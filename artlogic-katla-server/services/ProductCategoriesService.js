@@ -1,12 +1,20 @@
 import sequelize from '../database.js'
 
 class ProductCategoriesService {
-    getCategories() {
-        return sequelize.models.ProductCategory.findAll({
+    async getCategories() {
+        const categories = await sequelize.models.ProductCategory.findAll({
             attributes: [
-                'id', 'name', 'code', 'description', 'isDeleted', 'updatedAt'
+                'id', 'name', 'code', 'isDeleted', 'updatedAt'
             ]
         });
+
+        for (let i = 0; i < categories.length; ++i)
+        {
+            const productCount = await sequelize.models.CatalogueProduct.count({ where: { categoryId: categories[i].id }})
+            categories[i] = {...categories[i].dataValues, productCount}
+        }
+
+        return categories
     }
 
     createCategory({ name, code, description }) {
