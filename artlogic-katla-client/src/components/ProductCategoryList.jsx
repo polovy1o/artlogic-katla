@@ -26,8 +26,7 @@ function ProductCategoryList() {
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
                     <th scope="col">Name</th>
-
-
+                    <th scope="col">Products</th>
                     <th scope="col">Last Update</th>
                     <th scope="col"></th>
                     </tr>
@@ -38,9 +37,7 @@ function ProductCategoryList() {
                             <th scope="row">{productCategory.id}</th>
                             <td>{productCategory.code}</td>
                             <td>{productCategory.name}</td>
-
-
-
+                            <td>{productCategory.productCount}</td>
                             <td>{productCategory.updatedAt}</td>
                             <td>
                                 <span className="btn-toolbar" role="toolbar" aria-label="Product category action buttons" style={{ display: "block", whiteSpace: "nowrap", }}>
