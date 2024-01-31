@@ -87,7 +87,7 @@ function ProductCategoryForm() {
                             </div>
                             : null}
                         <div className="btn-toolbar" role="toolbar" aria-label="Action buttons">
-                        <div className="btn-group mr-1" role="group" aria-label="Cancel group">
+                            <div className="btn-group mr-1" role="group" aria-label="Cancel group">
                                 <button type="button" onClick={() => navigate(-1)} className="btn btn-primary">Back</button>
                             </div>
                             <div className="btn-group mr-4" role="group" aria-label="Save group">
