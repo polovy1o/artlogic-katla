@@ -25,19 +25,19 @@ class HiveService
         return this.instance.get(hiveId + '/sections');
     }
 
-    addHive(hive) 
+    addHive(createRequest) 
     {
-        return null;
+        return this.instance.post('', createRequest);
     }
 
-    updateHive(hive) 
+    updateHive(hiveId, updateRequest) 
     {
-        return null;
+        return this.instance.put('' + hiveId, updateRequest);
     }
 
     deleteHive(hiveId) 
     {
-        return null;
+        return this.instance.delete('' + hiveId);
     }
 
     setHiveStatus(hiveId, deletedStatus) 
