@@ -9,10 +9,10 @@ import ProductCategoryProductList, { ProductCategoryProductListLoader } from './
 import ProductCategoryForm, { ProductCategoryFormLoader } from './components/ProductCategoryForm';
 import ProductList, { ProductListLoader } from './components/ProductList';
 import ProductForm, { ProductFormLoader } from './components/ProductForm';
-import HiveList, { HiveListLoader } from './components/HiveList';
+import HiveList, { HiveListAction, HiveListLoader } from './components/HiveList';
 import HiveForm, { HiveFormLoader } from './components/HiveForm';
 import HiveSectionForm, { HiveSectionFormLoader } from './components/HiveSectionForm';
-import HiveSectionList, { HiveSectionListLoader } from './components/HiveSectionList';
+import HiveSectionList, { HiveSectionListAction, HiveSectionListLoader } from './components/HiveSectionList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -62,7 +62,8 @@ const router = createBrowserRouter([
             { 
                 path: '/hives', 
                 element: <HiveList/>,
-                loader: HiveListLoader 
+                loader: HiveListLoader,
+                action: HiveListAction
             },
             { 
                 path: '/hive', 
@@ -77,7 +78,8 @@ const router = createBrowserRouter([
             { 
                 path: '/hive/:hiveId/sections', 
                 element: <HiveSectionList/>,
-                loader: HiveSectionListLoader
+                loader: HiveSectionListLoader,
+                action: HiveSectionListAction
             },
             { 
                 path: '/section/:sectionId', 
