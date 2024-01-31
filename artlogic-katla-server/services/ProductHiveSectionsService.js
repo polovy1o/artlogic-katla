@@ -3,18 +3,18 @@ import sequelize from '../database.js'
 class ProductHiveSectionsService {
     getHiveSections() {
         return sequelize.models.HiveSection.findAll({
-            attributes: [ 'id', 'name', 'code', 'isDeleted' ]
+            attributes: [ 'id', 'name', 'hiveId', 'code', 'isDeleted' ]
         })
     }
 
     getHiveSection(id) {
         return sequelize.models.HiveSection.findByPk(id, {
-            attributes: [ 'id', 'name', 'code', 'isDeleted', 'updatedAt' ]
+            attributes: [ 'id', 'name', 'code', 'hiveId', 'isDeleted', 'updatedAt' ]
         })
     }
 
-    createHiveSection({ name, code }) {
-        return sequelize.models.HiveSection.create({name, code})
+    createHiveSection({ name, code, hiveId }) {
+        return sequelize.models.HiveSection.create({name, code, hiveId})
     }
 
     deleteHiveSection(id) {

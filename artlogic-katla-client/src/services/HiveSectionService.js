@@ -16,6 +16,21 @@ class HiveSectionService {
         return this.instance.get('' + hiveSectionId);
     }
 
+    addHiveSection(createRequest) 
+    {
+        return this.instance.post('', createRequest);
+    }
+
+    updateHiveSection(hiveSectionId, updateRequest) 
+    {
+        return this.instance.put('' + hiveSectionId, updateRequest);
+    }
+
+    deleteHiveSection(hiveSectionId) 
+    {
+        return this.instance.delete('' + hiveSectionId);
+    }
+
     setHiveSectionStatus(hiveSectionId, deletedStatus) {
         return this.instance.put(hiveSectionId + '/status/' + deletedStatus);
     }

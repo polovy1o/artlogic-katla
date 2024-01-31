@@ -12,7 +12,7 @@ export async function HiveSectionListLoader({ params }) {
             statusText: "Not Found!",
         });
     }
-    return { sections };
+    return { sections, hiveId: params.hiveId };
 }
 
 export async function HiveSectionListAction({ request }) {
@@ -22,11 +22,11 @@ export async function HiveSectionListAction({ request }) {
 }
 
 function HiveSectionList() {
-    const { sections } = useLoaderData()
+    const { sections, hiveId } = useLoaderData()
 
     return (
         <div className="container">
-            <h2>Hive Sections for Hive</h2>
+            <h2>Hive Sections for Hive #{hiveId}</h2>
             <table className="table table-nonfluid">
                 <thead>
                     <tr>
@@ -70,7 +70,7 @@ function HiveSectionList() {
                     <NavLink to="/hives" className="btn btn-primary">Back</NavLink>
                 </div>
                 <div className="btn-group" role="group" aria-label="Add group">
-                    <NavLink to="/section" className="btn btn-primary">Add hive section</NavLink>
+                    <NavLink to={'/hive/' + hiveId + '/section'} className="btn btn-primary">Add hive section</NavLink>
                 </div>
             </div>
         </div>

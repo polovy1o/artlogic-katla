@@ -354,7 +354,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/UpdateHiveSectionRequest"
+                            "$ref": "#/definitions/CreateHiveSectionRequest"
                         }
                     }
                 ],
@@ -1187,6 +1187,10 @@
                 "code": {
                     "type": "string"
                 },
+                "hiveId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
                 "isDeleted": {
                     "type": "boolean"
                 }
@@ -1223,6 +1227,10 @@
                 "code": {
                     "type": "string"
                 },
+                "hiveId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
                 "isDeleted": {
                     "type": "boolean"
                 }
@@ -1236,6 +1244,21 @@
                 },
                 "code": {
                     "type": "string"
+                }
+            }
+        },
+        "CreateHiveSectionRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "hiveId": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
