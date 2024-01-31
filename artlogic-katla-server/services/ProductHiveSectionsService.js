@@ -13,6 +13,20 @@ class ProductHiveSectionsService {
         })
     }
 
+    createHiveSection({ name, code }) {
+        return sequelize.models.HiveSection.create({name, code})
+    }
+
+    deleteHiveSection(id) {
+        return sequelize.models.HiveSection.destroy({ where: { id }})
+    }
+
+    updateHiveSection(id, { name, code }) {
+        return sequelize.models.HiveSection.update({ name, code }, {
+            where: { id }
+        })
+    }
+
     setHiveSectionStatus(id, isDeleted) {
         return sequelize.models.HiveSection.update({ isDeleted }, { where: { id }})
     }

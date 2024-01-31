@@ -329,9 +329,52 @@
                         "description": "InternalServerError"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_AddHiveSection",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "createRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateHiveSectionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Creates a new hive section."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
             }
         },
-        "/api/sections/{hiveSectionId}": {
+        "/api/sections/{id}": {
             "get": {
                 "tags": [
                     "HiveSections"
@@ -346,7 +389,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "hiveSectionId",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "type": "integer",
@@ -365,6 +408,98 @@
                     },
                     "404": {
                         "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_UpdateHiveSection",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "updateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateHiveSectionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Updates an existed hive section."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "HiveSections"
+                ],
+                "operationId": "HiveSections_DeleteHiveSection",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deletes an existed hive section."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
                     },
                     "500": {
                         "description": "InternalServerError"
@@ -1090,6 +1225,17 @@
                 },
                 "isDeleted": {
                     "type": "boolean"
+                }
+            }
+        },
+        "UpdateHiveSectionRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
                 }
             }
         },

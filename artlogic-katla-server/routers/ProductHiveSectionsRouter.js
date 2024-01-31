@@ -10,6 +10,21 @@ productHiveSectionsRouter.get(
     productHiveSectionsMiddlewares.getHiveSection, 
     productHiveSectionsController.getHiveSection
 )
+productHiveSectionsRouter.post(
+    '/', 
+    productHiveSectionsMiddlewares.createHiveSection, 
+    productHiveSectionsController.createHiveSection
+)
+productHiveSectionsRouter.delete(
+    '/:sectionId', 
+    productHiveSectionsMiddlewares.deleteHiveSection, 
+    productHiveSectionsController.deleteHiveSection
+)
+productHiveSectionsRouter.put(
+    '/:sectionId', 
+    productHiveSectionsMiddlewares.updateHiveSection,
+    productHiveSectionsController.updateHiveSection
+)
 productHiveSectionsRouter.put(
     '/:sectionId/status/:deletedStatus', 
     productHiveSectionsMiddlewares.setHiveSectionStatus,

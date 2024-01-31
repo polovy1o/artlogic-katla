@@ -30,7 +30,6 @@ productHivesRouter.put(
     productHivesMiddlewares.updateHive,
     productHivesController.updateHive
 )
-
 productHivesRouter.put(
     '/:hiveId/status/:deletedStatus', 
     productHivesMiddlewares.setHiveStatus,
