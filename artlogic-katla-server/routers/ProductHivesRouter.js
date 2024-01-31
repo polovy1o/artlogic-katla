@@ -15,6 +15,22 @@ productHivesRouter.get(
     productHivesMiddlewares.getHiveSections,
     productHivesController.getHiveSections
 )
+productHivesRouter.post(
+    '/', 
+    productHivesMiddlewares.createHive, 
+    productHivesController.createHive
+)
+productHivesRouter.delete(
+    '/:hiveId', 
+    productHivesMiddlewares.deleteHive, 
+    productHivesController.deleteHive
+)
+productHivesRouter.put(
+    '/:hiveId', 
+    productHivesMiddlewares.updateHive,
+    productHivesController.updateHive
+)
+
 productHivesRouter.put(
     '/:hiveId/status/:deletedStatus', 
     productHivesMiddlewares.setHiveStatus,

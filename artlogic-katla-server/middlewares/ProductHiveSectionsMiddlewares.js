@@ -4,12 +4,12 @@ import ValidationMiddleware from "./ValidationMiddleware.js";
 const productHiveSectionsMiddlewares = {
     getHiveSection: [
         param('sectionId')
-            .isInt().withMessage('Hive Section ID must be INT'),
+            .isInt({min: 1}).withMessage('Hive Section ID must be INT'),
         ValidationMiddleware
     ],
     setHiveSectionStatus: [
         param('sectionId')
-            .isInt().withMessage('Hive Section ID must be INT'),
+            .isInt({min: 1}).withMessage('Hive Section ID must be INT'),
         param('deletedStatus')
             .isBoolean().withMessage('Deleted status must be BOOLEAN'),
         ValidationMiddleware

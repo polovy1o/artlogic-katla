@@ -39,9 +39,52 @@
                         "description": "InternalServerError"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_AddHive",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "createRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateHiveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Creates a new hive."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
             }
         },
-        "/api/hives/{hiveId}": {
+        "/api/hives/{id}": {
             "get": {
                 "tags": [
                     "Hives"
@@ -56,7 +99,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "hiveId",
+                        "name": "id",
                         "in": "path",
                         "required": true,
                         "type": "integer",
@@ -75,6 +118,98 @@
                     },
                     "404": {
                         "description": "NotFound"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_UpdateHive",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "updateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateHiveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Updates an existed hive."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "InternalServerError"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Hives"
+                ],
+                "operationId": "Hives_DeleteHive",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deletes an existed hive."
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "404": {
+                        "description": "NotFound"
+                    },
+                    "409": {
+                        "description": "Conflict"
                     },
                     "500": {
                         "description": "InternalServerError"
@@ -919,6 +1054,20 @@
                 },
                 "isDeleted": {
                     "type": "boolean"
+                }
+            }
+        },
+        "UpdateHiveRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
                 }
             }
         },
