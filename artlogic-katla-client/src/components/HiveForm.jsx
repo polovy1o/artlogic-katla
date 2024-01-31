@@ -17,7 +17,7 @@ export async function HiveFormLoader({ params }) {
 
         return { hive };
     }
-    return { hive: { name: '' } };
+    return { hive: { name: '', code: '', address: '' } };
 }
 
 function HiveForm() {

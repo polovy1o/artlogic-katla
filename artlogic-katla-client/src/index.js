@@ -87,7 +87,7 @@ const router = createBrowserRouter([
                 loader: HiveSectionFormLoader
             },
             {
-                path: '/section',
+                path: '/hive/:hiveId/section',
                 element: <HiveSectionForm/>,
                 loader: HiveSectionFormLoader
             }
