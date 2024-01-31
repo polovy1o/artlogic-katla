@@ -29,7 +29,7 @@ function HiveForm() {
         name: Yup.string()
             .min(4, 'Hive Name must be at least 4 characters long.')
             .max(60, 'Hive Name must be less than 60 characters long.')
-            .required('Product Name is required.'),
+            .required('Hive Name is required.'),
         code: Yup.string()
             .min(5, 'Hive Code must be 5 characters long.')
             .max(5, 'Hive Code must be 5 characters long.')
@@ -77,7 +77,7 @@ function HiveForm() {
                                 : null}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="description" id="descriptionLabel">Hive Address</label>
+                            <label htmlFor="address" id="addressLabel">Hive Address</label>
                             <Field as='textarea' value={values.address || ''} className="form-control" id="address" aria-describedby="addressLabel" rows="4" maxLength="300" name="address" />
                         </div>
                         {values.updatedAt ?
