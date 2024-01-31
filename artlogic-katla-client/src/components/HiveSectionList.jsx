@@ -1,18 +1,49 @@
 import React from "react";
 import { Form, useLoaderData, NavLink } from "react-router-dom";
+import hiveService from "../services/HiveService";
 
 export async function HiveSectionListLoader({ params }) {
-    return null;
+    const sections = (await hiveService.getHiveSections(params.hiveId)).data;
+
+    if (!sections) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Not Found!",
+        });
+    }
+    return { sections };
 }
 
 function HiveSectionList() {
+    const { sections } = useLoaderData()
+
     return (
         <div className="container">
             <h2>Hive Sections for Hive</h2>
             <table className="table table-nonfluid">
                 <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col"></th>
+                    </tr>
                 </thead>
                 <tbody>
+                    {sections.map(section =>
+                        <tr key={section.id}>
+                            <th scope="row">{section.id}</th>
+                            <td>{section.code}</td>
+                            <td>{section.name}</td>
+                            <td>
+                                <span className="btn-toolbar" role="toolbar" aria-label="Hive Section action buttons" style={{ display: "block", whiteSpace: "nowrap", }}>
+                                    <div className="btn-group mr-2" role="group" aria-label="Edit group">
+                                        <NavLink to={'/section/' + section.id} className="btn btn-primary">Edit</NavLink>
+                                    </div>
+                                </span>
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
             <div className="btn-toolbar" role="toolbar" aria-label="Action buttons">
@@ -20,7 +51,7 @@ function HiveSectionList() {
                     <NavLink to="/hives" className="btn btn-primary">Back</NavLink>
                 </div>
                 <div className="btn-group" role="group" aria-label="Add group">
-                    <NavLink to="/hive/{{this.hiveId}}" className="btn btn-primary">Add hive section</NavLink>
+                    <NavLink to="/section" className="btn btn-primary">Add hive section</NavLink>
                 </div>
             </div>
         </div>

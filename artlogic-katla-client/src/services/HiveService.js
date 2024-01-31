@@ -22,7 +22,7 @@ class HiveService
 
     getHiveSections(hiveId) 
     {
-        return null;
+        return this.instance.get(hiveId + '/sections');
     }
 
     addHive(hive) 
