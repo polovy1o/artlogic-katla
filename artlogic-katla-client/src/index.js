@@ -12,6 +12,7 @@ import ProductForm, { ProductFormLoader } from './components/ProductForm';
 import HiveList, { HiveListLoader } from './components/HiveList';
 import HiveForm, { HiveFormLoader } from './components/HiveForm';
 import HiveSectionForm, { HiveSectionFormLoader } from './components/HiveSectionForm';
+import HiveSectionList, { HiveSectionListLoader } from './components/HiveSectionList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -75,11 +76,16 @@ const router = createBrowserRouter([
             },
             { 
                 path: '/hive/:hiveId/sections', 
-                element: <HiveSectionForm/>,
-                loader: HiveSectionFormLoader
+                element: <HiveSectionList/>,
+                loader: HiveSectionListLoader
             },
             { 
                 path: '/section/:sectionId', 
+                element: <HiveSectionForm/>,
+                loader: HiveSectionFormLoader
+            },
+            {
+                path: '/section',
                 element: <HiveSectionForm/>,
                 loader: HiveSectionFormLoader
             }
