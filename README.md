@@ -48,6 +48,7 @@ Project structure:
 
 ## <a id="start">First start</a>
 
+<del>
 After fulfilling of the [requirements](#requirements), create and configure “.env" files on client and server sides. Create .env files on main folders. 
 
 On client side .env file must be with parameter *REACT_APP_SERVER_URL* (url of back-end server). Example of content:
@@ -63,7 +64,7 @@ In development mode, the database cleans up every time it runs, recreates tables
 PORT=3001
 NODE_ENV=development
 ```
-
+</del>
 After this, install all dependencies. Front-end and back-end parts use *yarn package* and have same procedure to install. You must open console (in Visual Studio Code, for example), go to the front-end/back-end folder and install all dependencies using the command:
 
 `yarn install`
