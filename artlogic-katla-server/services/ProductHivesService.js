@@ -34,6 +34,20 @@ class ProductHivesService {
         })
     }
 
+    createHive({ name, code, address }) {
+        return sequelize.models.Hive.create({name, code, address})
+    }
+
+    deleteHive(id) {
+        return sequelize.models.Hive.destroy({ where: { id }})
+    }
+
+    updateHive(id, { name, code, address }) {
+        return sequelize.models.Hive.update({ name, code, address }, {
+            where: { id }
+        })
+    }
+
     setHiveStatus(id, isDeleted) {
         return sequelize.models.Hive.update({ isDeleted }, { where: { id } })
     }

@@ -13,15 +13,15 @@ const productCategoriesMiddlewares = {
         ValidationMiddleware
     ],
     deleteCategory: [
-        param('categoryId').isInt().withMessage('Category ID must be INT'),
+        param('categoryId').isInt({min: 1}).withMessage('Category ID must be INT'),
         ValidationMiddleware
     ],
     getCategory: [
-        param('categoryId').isInt().withMessage('Category ID must be INT'),
+        param('categoryId').isInt({min: 1}).withMessage('Category ID must be INT'),
         ValidationMiddleware
     ],
     updateCategory: [
-        param('categoryId').isInt().withMessage('Category ID must be INT'),
+        param('categoryId').isInt({min: 1}).withMessage('Category ID must be INT'),
         body('name')
             .exists().withMessage('Name is required').bail()
             .isLength({ min: 4, max: 60 }).withMessage('Name length must be < 60'),
@@ -32,12 +32,12 @@ const productCategoriesMiddlewares = {
         ValidationMiddleware
     ],
     setCategoryStatus: [
-        param('categoryId').isInt().withMessage('Category ID must be INT'),
+        param('categoryId').isInt({min: 1}).withMessage('Category ID must be INT'),
         param('deletedStatus').isBoolean().withMessage('Deleted status must be BOOLEAN'),
         ValidationMiddleware
     ],
     getCategoryProducts: [
-        param('categoryId').isInt().withMessage('Category ID must be INT'),
+        param('categoryId').isInt({min: 1}).withMessage('Category ID must be INT'),
         ValidationMiddleware
     ]
 }

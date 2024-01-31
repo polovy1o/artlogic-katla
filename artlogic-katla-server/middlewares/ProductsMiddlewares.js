@@ -19,15 +19,15 @@ const productsMiddlewares = {
         ValidationMiddleware
     ],
     deleteProduct: [
-        param('productId').isInt().withMessage('Product ID must be INT'),
+        param('productId').isInt({min: 1}).withMessage('Product ID must be INT'),
         ValidationMiddleware
     ],
     getProduct: [
-        param('productId').isInt().withMessage('Product ID must be INT'),
+        param('productId').isInt({min: 1}).withMessage('Product ID must be INT'),
         ValidationMiddleware
     ],
     updateProduct: [
-        param('productId').isInt().withMessage('Product ID must be INT'),
+        param('productId').isInt({min: 1}).withMessage('Product ID must be INT'),
         body('name')
             .exists().withMessage('Name is required').bail()
             .isLength({ min: 4, max: 60 }).withMessage('Name length must be <= 60 and >= 4'),
@@ -44,7 +44,7 @@ const productsMiddlewares = {
         ValidationMiddleware
     ],
     setProductStatus: [
-        param('productId').isInt().withMessage('Product ID must be INT'),
+        param('productId').isInt({min: 1}).withMessage('Product ID must be INT'),
         param('deletedStatus').isBoolean().withMessage('Deleted status must be BOOLEAN'),
         ValidationMiddleware
     ]

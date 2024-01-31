@@ -25,9 +25,6 @@ class ProductCategoriesService {
         return sequelize.models.ProductCategory.destroy({ where: { id }})
     }
 
-    //
-    //TODO
-    //
     getCategory(id) {
         return sequelize.models.ProductCategory.findByPk(id, {attributes: [
             'id', 'name', 'code', 'description', 'isDeleted', 'updatedAt'
