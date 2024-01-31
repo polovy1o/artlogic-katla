@@ -27,7 +27,8 @@ class ProductService {
     }
     
     addProduct(createRequest) {
-        return this.productInstance.post(createRequest);
+        console.log(createRequest)
+        return this.productInstance.post('', createRequest);
     }
     
     updateProduct(productId, updateRequest) {
@@ -36,6 +37,10 @@ class ProductService {
     
     deleteProduct(productId) {
         return this.productInstance.delete('' + productId);
+    }
+
+    setProductStatus(productId, status) {
+        return this.productInstance.put(productId + '/status/' + status)
     }
 }
 

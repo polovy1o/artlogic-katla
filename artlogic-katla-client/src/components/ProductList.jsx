@@ -59,9 +59,12 @@ function ProductList() {
                     )}
                 </tbody>
             </table>
+            <div className="btn-toolbar" role="toolbar" aria-label="Action buttons">
+                <div className="btn-group" role="group" aria-label="Save group">
+                    <NavLink to="/product" className="btn btn-primary">New Product</NavLink>
+                </div>
+            </div>
         </div>
-
-
     )
 }
 

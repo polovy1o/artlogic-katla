@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 
 export async function ProductFormLoader({ params }) {
     const categories = (await productCategoryService.getProductCategories()).data;
+    const categoryId = categories.length ? categories[0].id : 'id'
 
     if (params.productId) {
         const product = (await productService.getProduct(params.productId)).data;
@@ -20,7 +21,8 @@ export async function ProductFormLoader({ params }) {
 
         return { categories, product };
     }
-    return { categories, product: {code: '', categoryId: '', description: '', manufacturerCode: '', price: ''} };
+    
+    return { categories, product: {name: '', code: '', categoryId, description: '', manufacturerCode: '', price: ''} };
 }
 
 function ProductForm() {
@@ -58,7 +60,7 @@ function ProductForm() {
                     }
                 }}
             >
-                {({ errors, touched, values, setFieldValue }) => (
+                {({ errors, touched, values }) => (
                     <Form>
                         {values.id ?
                             <div className="form-group">
@@ -129,13 +131,13 @@ function ProductForm() {
                             </div>
                             {values.id && !deleted ?
                                 <div className="btn-group mr-1" role="group" aria-label="Delete group">
-                                    <button type="button" onClick={() => setDeleted(true)} className="btn btn-warning" name="type">Delete</button>
+                                    <button type="button" onClick={() => productService.setProductStatus(values.id, true).then(() => setDeleted(true))} className="btn btn-warning" name="type">Delete</button>
                                 </div>
                                 : null}
                             {values.id && deleted ?
                                 <div className="btn-group" role="group" aria-label="Purge group">
-                                    <button type="button" onClick={() => setDeleted(false)} className="btn btn-warning">Undelete</button>
-                                    <button type="button" /*onClick={() => productService.deleteProduct(values.id).then(() => navigate(-1)) }*/ className="btn btn-danger">Purge</button>
+                                    <button type="button" onClick={() => productService.setProductStatus(values.id, false).then(() => setDeleted(false))} className="btn btn-warning">Undelete</button>
+                                    <button type="button" onClick={() => productService.deleteProduct(values.id).then(() => navigate(-1))} className="btn btn-danger">Purge</button>
                                 </div>
                                 : null}
                         </div>

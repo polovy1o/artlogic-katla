@@ -55,6 +55,11 @@ const router = createBrowserRouter([
                 loader: ProductFormLoader
             },
             { 
+                path: '/product', 
+                element: <ProductForm/>,
+                loader: ProductFormLoader
+            },
+            { 
                 path: '/category/:categoryId/product/:productId', 
                 element: <ProductForm/>,
                 loader: ProductFormLoader
