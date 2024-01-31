@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, useLoaderData, NavLink } from "react-router-dom";
 import hiveService from "../services/HiveService";
+import hiveSectionService from "../services/HiveSectionService";
 
 export async function HiveSectionListLoader({ params }) {
     const sections = (await hiveService.getHiveSections(params.hiveId)).data;
@@ -12,6 +13,12 @@ export async function HiveSectionListLoader({ params }) {
         });
     }
     return { sections };
+}
+
+export async function HiveSectionListAction({ request }) {
+    const formData = await request.formData()
+    await hiveSectionService.setHiveSectionStatus(formData.get('sectionId'), formData.get('delete'))
+    return null;
 }
 
 function HiveSectionList() {
@@ -37,9 +44,21 @@ function HiveSectionList() {
                             <td>{section.name}</td>
                             <td>
                                 <span className="btn-toolbar" role="toolbar" aria-label="Hive Section action buttons" style={{ display: "block", whiteSpace: "nowrap", }}>
-                                    <div className="btn-group mr-2" role="group" aria-label="Edit group">
-                                        <NavLink to={'/section/' + section.id} className="btn btn-primary">Edit</NavLink>
-                                    </div>
+                                    <Form method="post">
+                                        <div className="btn-group mr-2" role="group" aria-label="Edit group">
+                                            <NavLink to={'/section/' + section.id} className="btn btn-primary">Edit</NavLink>
+                                        </div>
+                                        <input type="hidden" name="sectionId" value={section.id} />
+                                        {section.isDeleted ?
+                                            <div className="btn-group" role="group" aria-label="Undelete group">
+                                                <button type="submit" name="delete" value={false} className="btn btn-warning">Undelete</button>
+                                            </div>
+                                            :
+                                            <div className="btn-group" role="group" aria-label="Delete group">
+                                                <button type="submit" name="delete" value={true} className="btn btn-danger">Delete</button>
+                                            </div>
+                                        }
+                                    </Form>
                                 </span>
                             </td>
                         </tr>

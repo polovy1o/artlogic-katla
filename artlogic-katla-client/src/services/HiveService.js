@@ -42,7 +42,7 @@ class HiveService
 
     setHiveStatus(hiveId, deletedStatus) 
     {
-        return null;
+        return this.instance.put(hiveId + '/status/' + deletedStatus);
     }
 }
 

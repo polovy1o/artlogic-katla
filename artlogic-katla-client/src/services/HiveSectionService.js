@@ -17,7 +17,7 @@ class HiveSectionService {
     }
 
     setHiveSectionStatus(hiveSectionId, deletedStatus) {
-        return null;
+        return this.instance.put(hiveSectionId + '/status/' + deletedStatus);
     }
 }
 
