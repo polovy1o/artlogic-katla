@@ -50,15 +50,26 @@ async function createRecordsForDevelopment() {
     sequelize.query("INSERT INTO CatalogueProducts VALUES (3, 'Abibas T-Shirt', 'ABIT1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
     sequelize.query("INSERT INTO CatalogueProducts VALUES (4, 'Pedali 360 Bicycle', 'PBYC1', '8372411146', 10, 'desc', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 3)")
 
+<<<<<<< HEAD
     sequelize.query("INSERT INTO Hives VALUES (1, 'Main', 'HIVE1', 'Lviv, Chornovola-30', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
     sequelize.query("INSERT INTO Hives VALUES (2, 'Second', 'HIVE2', 'Lviv, Lichakivska-47', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+=======
+    sequelize.query("INSERT INTO Hives VALUES (1, 'Gorka Minsk', 'HIVE1', 'Minsk, Chaveza-30', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO Hives VALUES (2, 'Shabany Minsk', 'HIVE2', 'Minsk, Zarechnaya-47', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO Hives VALUES (3, 'Tugolitsa Bobruisk', 'HIVE3', 'Bobruisk, Vanceti-99', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33')")
+>>>>>>> 433b13d30d21ccd676c55aea02f7eddc13983cc5
 
     sequelize.query("INSERT INTO HiveSections VALUES (1, 'MSQ #1', 'HSE11', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
     sequelize.query("INSERT INTO HiveSections VALUES (2, 'MSQ #2', 'HSE12', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
     sequelize.query("INSERT INTO HiveSections VALUES (3, 'MSQ #3', 'HSE21', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
     sequelize.query("INSERT INTO HiveSections VALUES (4, 'MSQ #4', 'HSE22', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
+<<<<<<< HEAD
     sequelize.query("INSERT INTO HiveSections VALUES (5, 'BBR #1', 'HSE31', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 1)")
     sequelize.query("INSERT INTO HiveSections VALUES (6, 'BBR #2', 'HSE32', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 2)")
+=======
+    sequelize.query("INSERT INTO HiveSections VALUES (5, 'BBR #1', 'HSE31', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 3)")
+    sequelize.query("INSERT INTO HiveSections VALUES (6, 'BBR #2', 'HSE32', 0, 1, 1, '2024-01-26 15:01:35', '2024-01-26 15:01:33', 3)")
+>>>>>>> 433b13d30d21ccd676c55aea02f7eddc13983cc5
 
     sequelize.query("INSERT INTO ProductSectionCategories VALUES ('2024-01-26 15:01:33', '2024-01-26 15:01:33', 1, 1)")
     sequelize.query("INSERT INTO ProductSectionCategories VALUES ('2024-01-26 15:01:33', '2024-01-26 15:01:33', 1, 2)")
@@ -83,8 +94,15 @@ async function createRecordsForDevelopment() {
     sequelize.query("INSERT INTO ProductStoreItems (createdAt, updatedAt, id, productId, sectionId, quantity) VALUES ('2024-01-26 15:01:33', '2024-01-26 15:01:33', 11, 4, 4, 0)")
     sequelize.query("INSERT INTO ProductStoreItems (createdAt, updatedAt, id, productId, sectionId, quantity) VALUES ('2024-01-26 15:01:33', '2024-01-26 15:01:33', 12, 4, 6, 0)")
 
+<<<<<<< HEAD
     sequelize.query("INSERT INTO CustomerRecords VALUES (1, 'Petro Herachenko', 'Lviv', '+38091938291', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
     sequelize.query("INSERT INTO CustomerRecords VALUES (2, 'Ivan Malosh', 'Lviv', '+380717193718', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
+=======
+    sequelize.query("INSERT INTO CustomerRecords VALUES (1, 'Oleg Alexandrov', 'Minsk, Goretskogo-31', '+37529-4345834', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO CustomerRecords VALUES (2, 'Gleb Pavlov', 'Minsk, Cechota-21', '+37529-3282943', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO CustomerRecords VALUES (3, 'Sergey Tatarinov', 'Borisov, 100 let BSSR', '+37529-9834782', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
+    sequelize.query("INSERT INTO CustomerRecords VALUES (4, 'Alexander Alexandrov', 'Brest, Repina-7', '+37529-9832872', '2024-01-26 15:01:33', '2024-01-26 15:01:33')")
+>>>>>>> 433b13d30d21ccd676c55aea02f7eddc13983cc5
 }
 
 export default sequelize;
